@@ -1,0 +1,142 @@
+/* Animating logo with keyframes */
+header img{
+    animation: mymove 5s;
+}
+@keyframes mymove{
+    0% {width: 25px; opacity: 0;}
+    100% {width: 475px; opacity: 1;}
+}
+/* #2: Editing body element */
+body{
+    font-family: 'Poppins', serif;
+    background: url(../images/concrete_seamless.png), #f1f1f1;
+}
+/* #3 */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* #4 */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+/* #5: challenge problem, keep link same color */
+a:link, a:visited{
+    color: blue;
+    text-decoration: blue, underline;
+}
+/* #6: property selector to style header elements */
+.card > header{
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+}
+/* #7: */
+.card{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-basis: 450px;
+
+}
+/* #8 */
+.pricing{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+
+}
+/* #9 */
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+/* #10 */
+.gallery{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* Workin on specifications for screen-size greater than 900px */
+/* #11 */
+@media screen and (min-width: 900px){
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav_links{
+        flex-direction: row;        
+    }
+    /* #12 */
+    .card{
+        flex-direction: column;
+        flex-basis: 275px;
+    }
+    .pricing{
+        align-items: center
+    }
+    /* #13: challenge problem making first header remain visible as you scroll */
+    body > header{
+        position: sticky;
+        top: 0px;
+    }
+}
+/* #14: Specifications for when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce){
+    header img{
+        animation: none;
+    }
+}
+/* Specifications for when the page is printed in portrait mode */
+/* #15/#16 */
+@media print{
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+   header {
+    align-items: stretch;
+   }
+   header img{
+    align-self: center;
+   }
+   /* #17 */
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+       
+    }
+    /* #18 */
+    .pricing{
+        /* display:flex; */
+        align-items: flex-end;
+        flex-flow: row nowrap;
+
+    }
+    /* #19 */
+    .card{
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+    /* #20 */
+    .gallery, #gallery{
+        display: none;
+    }
+    /* #21: challenge problem adding thumbs up to the cards when printed */
+    div li:nth-child(2)::after{
+        content: "\1F44D"
+    }
+
+}
